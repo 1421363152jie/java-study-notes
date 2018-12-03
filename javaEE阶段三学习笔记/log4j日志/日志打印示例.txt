@@ -1,0 +1,20 @@
+log4j.rootLogger = info,C,I,E
+
+log4j.appender.C = org.apache.log4j.ConsoleAppender
+log4j.appender.C.Target = System.out
+log4j.appender.C.layout = org.apache.log4j.PatternLayout
+log4j.appender.C.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+log4j.appender.I = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.I.File = F:/info.log
+log4j.appender.I.Append = true
+log4j.appender.I.Threshold = info 
+log4j.appender.I.layout = org.apache.log4j.PatternLayout
+log4j.appender.I.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+log4j.appender.E = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.E.File = F:/error.log
+log4j.appender.E.Append = true
+log4j.appender.E.Threshold = error 
+log4j.appender.E.layout = org.apache.log4j.PatternLayout
+log4j.appender.E.layout.ConversionPattern =[%-5p] %d{yyyy-MM-dd HH\:mm\:ss,SSS} method\:%l%n%m%n

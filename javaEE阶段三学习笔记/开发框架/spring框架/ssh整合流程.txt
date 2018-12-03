@@ -1,0 +1,35 @@
+ssh三大框架的整合
+1,建立web工程
+2,加入ssh的整合包
+3,建立配置文件资源包，将hibernate的核心配置文件和二级缓存文件和spring的配置文件和打印日志文件放入资源包中
+4,配置hibernate的核心文件，连接数据库驱动去掉
+5,配置spring的配置文件和hibernate的整合
+6,创建Action包，创建一个Action
+7,action中导入模型和service
+8，加入struts的配置文件,配置struts中的action
+9，配置web.xml文件，
+10,把jar包加到lib下
+11,建立jsp页面
+
+Application配置
+1,用spring的orm的整合包配置sessionFactor
+1-1,注入数据源
+1-2,加载hibernate的核心配置文件
+2,通过spring提供的orm的hibernate的事务管理器配置 bean
+2-1,注入 sessionFactory
+3,通知配置 配置上事务
+3-1,配置方法和相关的事务
+4,切面配置
+5, 配置dao注入sessionFactory 
+6,配置userService的bean注入userDao
+7,配置struts2的Action, 并且注入service scope配置为多例的
+
+struts2的配置文件中
+1,struts和spring整合时class要指定成Action在spring中配置的bean的id 
+
+
+
+注解方式的配置文件
+hibernate的配置和配置文件方式一至
+1,事务的注解方式开启
+2,配置扫描器

@@ -1,0 +1,9 @@
+this关键字：
+this不能和super同时使用，因为都是放在第一行
+1，打印一个对象，输出是这个对象的地址（jdk提供的一个地址）;
+2,this只能在类的对象方法中使用
+3，this代表当前使用这个this所在的方法的对象的自身
+4，this可以在方法内区分同名的类的属性和参数名，有this的一定是属性，没有this的一定是方法的参数名。 
+具体使用：如： public void setName(String name){
+	   this.name=name;
+   }

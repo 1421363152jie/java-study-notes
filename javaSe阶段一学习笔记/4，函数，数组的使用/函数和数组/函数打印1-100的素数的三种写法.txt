@@ -1,0 +1,74 @@
+打印1-100之间的素数
+第一种写法：
+class Bk 
+{
+	public static void main(String[] args) 
+	{
+		for (int i=1;i<=100;i++)
+		{
+			sushu(i);
+		}
+	}
+	public static void sushu(int n)
+	{
+		int i;
+		for (i=2;i<=n/2;i++ )
+		{
+			if(n%i==0)
+				break;
+		}
+		if (i>n/2)
+		{
+			System.out.println(n+"是素数");
+		}else{
+			System.out.println(n+"不是素数");
+		}
+	}
+}
+第二种写法：
+class Bl 
+{
+	public static void main(String[] args) 
+	{
+		for (int i=1;i<100;i++)
+		{
+			boolean flag = sushu(i);
+			if(flag)
+			{
+				System.out.println(i+" ");
+			}
+		}
+	}
+	public static boolean sushu(int n)
+	{
+		for (int i=2;i<=n/2;i++ )
+		{
+			if(n%i==0)
+				return false;
+		}
+		return true;
+	}
+	}
+第三种写法：
+class Bn 
+{
+	public static void main(String[] args) 
+	{
+		for (int i=1;i<=100;i++ )
+		{
+			if(sushu(i))
+			{
+				System.out.println(i+" ");
+			}
+		}
+	}
+	public static boolean sushu(int n)
+	{
+		for (int i=2;i<=n/2;i++ )
+		{
+			if (n%i==0)
+			return false;
+		}
+		return true;
+	}
+}

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!--数据库连接设置 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://192.168.42.71:3306/hiber09</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">hmj</property>
+        <!-- 数据库连接最小连接数 -->
+       <property name="c3p0.min_size">10</property>
+       <!-- 数据库连接最大连接数 -->
+        <property name="c3p0.max_size">100</property>
+        <!-- 连接数据库超时时间 -->
+        <property name="c3p0.timeout">3000</property>
+        <!--设置数据库连接池的初始化连接数 -->
+          <!-- 开启二级缓存 -->
+         <property name="hibernate.cache.use_second_level_cache">true</property>
+         <!-- 开启查询缓存 -->
+         <property name="hibernate.cache.use_query_cache">true</property>
+         <!-- 整合ehcache -->
+         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+         
+         
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+     <!--     <property name="hbm2ddl.auto">create</property> -->
+
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <mapping resource="com/mj/hiber/model/User.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,4 @@
+driverClass=com.mysql.jdbc.Driver
+url=jdbc:mysql://192.168.42.71:3306/mj_db
+username=root
+password=hmj

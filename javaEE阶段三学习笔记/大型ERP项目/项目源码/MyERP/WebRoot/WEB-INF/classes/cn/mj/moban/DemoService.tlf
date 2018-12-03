@@ -1,0 +1,9 @@
+package cn.mj.service;
+
+import cn.mj.model.Demo;
+import cn.mj.query.DemoQuery;
+
+public interface DemoService extends BaseService<Demo, DemoQuery>{
+	
+
+}

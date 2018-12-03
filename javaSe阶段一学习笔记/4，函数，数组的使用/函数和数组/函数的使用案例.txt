@@ -1,0 +1,38 @@
+案例：求10-1000之间的可逆素数
+      该数是素数，该数字倒置之后还是素数称为可逆素数
+   a，判断一个数字是否为素数====写成函数
+   b，把一个数字倒置====写成函数
+具体案例：
+class Bo 
+{
+	public static void main(String[] args) 
+	{
+		for (int i=10;i<=1000;i++)
+		{
+			int ds = daoshu(i);
+			if(sushu(i)&&sushu(ds))意思是如果这个数字是素数并且倒置还是素数
+			{
+				System.out.println(i);
+			}
+		}
+	}
+	public static int daoshu(int n)这部分为倒置一个数字
+	{
+		int sum = 0;
+		while (n!=0)
+		{
+			sum = sum*10+n%10;
+			n=n/10;
+		}
+		return sum;
+	}
+	public static boolean sushu(int n)这部分为判断是否数字为素数
+	{
+		for (int i=2;i<=n/2;i++ )
+		{
+			if(n%i==0)
+				return false;
+		}
+		return true;
+}
+}

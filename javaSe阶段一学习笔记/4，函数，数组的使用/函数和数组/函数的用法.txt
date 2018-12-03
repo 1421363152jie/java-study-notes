@@ -1,0 +1,128 @@
+ 函数的声明：
+      pubilc static 返回值类型 函数名（形式参数列表）
+ {
+     函数体
+}
+     函数返回值类型：
+    函数是一个过程的调用，调用这个过程，可以得到一些结果
+    如果这些结果是一个具体的数值（可以用变量接收，只能通过return关键字返回）,函数有了具体的返回值类型如int，必须通过return返回，否则编译不通过！
+    那么返回值就是该数值的类型
+   如：把两个整数相加得到另外一个整数把它写成一函数
+      必须通过return关键字返回这个和，那么返回值就是int
+   如果只是一个过程的调用，没有任何数据得到（比如只是打印，只是执行一个过程）那么返回类型是void
+  函数的名称：
+   随便取，和内容相近就行
+  形式参数列表：
+   可以根据用户需求，在这个功能上需求被代替的数字。
+   如：求两个数相加，哪两个数呢？任意的，那么我们就需要用两个变量来代替这两个任意的数字
+   如：我们要打印一个数字的因子，这个数字可以是任意的，我们就需要用一个变量来代替这个数字
+   这个代替就是形式参数
+   函数的位置：和主函数并列
+案例1:打印一个数字的因子写成函数
+     返回值类型：只是打印 返回值void
+    函数名称 ：yingzi
+   形式参数：一个数字，是任意的，可以代替的，用一个变量表示，这个变量就代替了这个任意的数字，int a变量名可以随意
+  public static void yingzi（int a）{函数体}
+  函数的调用：使用的时候直接  函数名
+具体案例：
+import java.util.Scanner;
+class Ai 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("请输入一个数字:");
+		int x1 = s.nextInt();
+		yingzi(x1);
+		System.out.println("请输入第二个数字:");
+		int x2 = s.nextInt();
+		yingzi(x2);
+		System.out.println("请输入第三个数字:");
+		int x3 = s.nextInt();
+		yingzi(x3);//这里是函数名加输入的数字
+	}
+	public static void yingzi(int a)//public static加函数名加变量名
+	{
+		for (int i=1;i<=a/2;i++ )
+		{
+			if(a%i==0)
+				System.out.println(i+" ");
+		}
+		System.out.println();
+	}
+
+}
+ 案例：任意两个整数求和写成函数
+    返回值类型：如果打印和，可以不用直接void
+    如果希望得到和，然后做其它处理，必须是通过函数得到和。
+   返回值int
+ 函数名称：任意的
+函数形式参数：冉遗两个整数的和，这个两个整数可以替换用两个变量表示
+具体案例：
+class Aj
+{
+	public static void main(String[] args) 
+	{
+		double a1 = he(2.22,3.50);
+		double b1 = he(5.56,5.00);
+		System.out.println(a1+","+b1);
+	}
+	public static double he (double a,double b)
+	{
+		double c = a+b;
+		return c;
+	}
+}
+具体案例2：
+比较输入两个字的大小
+import java.util.Scanner;
+class Ao 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("请输入一个数字:");
+		int a1 = s.nextInt();
+		System.out.println("请输入第二个数字:");
+		int a2 = s.nextInt();
+		int max = getMax(a1,a2);
+		System.out.println(max+"是两个数之间最大的数");
+	}
+	public static int getMax(int x ,int y)
+	{
+		int result;
+		if (x>y)
+		{
+			result=x;
+		}else{
+			result=y;
+		}
+		return result;
+}
+}
+案例：打印1-100之间所有的素数
+具体案例：
+class Bl 
+{
+	public static void main(String[] args) 
+	{
+		for (int i=1;i<100;i++)
+		{
+			boolean flag = sushu(i);
+			if(flag)
+			{
+				System.out.println(i+" ");
+			}
+		}
+	}
+	public static boolean sushu(int n)
+	{
+		for (int i=2;i<=n/2;i++ )
+		{
+			if(n%i==0)
+				return false;函数遇到return关键字，函数运行结束。
+		}
+		return true;
+	}
+	}
+

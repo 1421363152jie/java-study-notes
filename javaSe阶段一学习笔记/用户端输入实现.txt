@@ -1,0 +1,38 @@
+如何实现从键盘输入：
+import java.util.Scanner;
+class Suru 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		String str =null;
+		str = s.next();
+		System.out.println(str);
+	}
+}
+1:
+键盘中输入汉字或数字，字符等都可以用
+	String str =null;
+		str = s.next();
+2：
+键盘中输入整数可以用
+int a = s.nextInt();
+3:
+键盘中输入字符串
+String a= s.nextLine();
+
+nextLine（）自动读取了被next（）去掉的Enter作为他的结束符，所以没办法给s2从键盘输入值。经过验证，其他的next的方法，如double nextDouble()  ， float nextFloat() ， int nextInt() 等与nextLine（）连用时都存在这个问题，解决的办法是：在每一个 next（）、nextDouble()  、 www.gzlij.com（）、nextFloat()、nextInt() 等语句之后加一个nextLine（）语句，将被next（）去掉的Enter结束符过滤掉
+字符串的取值
+ 变量加substring关键字加字符所在位置(0开始排序)可取中文字符   a.substring(3,5)
+class Zf 
+{
+	public static void main(String[] args) 
+	{
+	String a="Haodoyoudo";
+	String b="howareyou";
+	System.out.println(a.substring(3,5));
+	System.out.println(b.substring(6));
+	}
+}
+生成随机数公式：
+int a=(int)(Math.random()*6)+1;

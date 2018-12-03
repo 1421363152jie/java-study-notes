@@ -1,0 +1,19 @@
+package cn.mj.service.impl;
+
+import cn.mj.dao.DemoDao;
+import cn.mj.model.Demo;
+import cn.mj.query.DemoQuery;
+import cn.mj.service.DemoService;
+
+public class DemoServiceImpl extends BaseServiceImpl<Demo, DemoQuery> implements DemoService {
+	private DemoDao demoDao;
+
+	public void setDemoDao(DemoDao demoDao) {
+		this.demoDao = demoDao;
+		this.baseDao=demoDao;
+	}
+	
+	
+	
+
+}

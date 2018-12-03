@@ -1,0 +1,8 @@
+package cn.mj.dao;
+
+import cn.mj.model.Demo;
+import cn.mj.query.DemoQuery;
+
+public interface DemoDao extends BaseDao<Demo, DemoQuery> {
+
+}

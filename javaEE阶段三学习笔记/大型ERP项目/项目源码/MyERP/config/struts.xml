@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true"></constant>
+<!-- 主题 防止布局错乱-->
+<constant name="struts.ui.theme" value="simple"></constant>
+<!-- 拦截器和拦截栈的配置 -->
+<package name="baseStack" extends="struts-default" abstract="true">
+  <interceptors>
+  <!-- 登陆拦截器 -->
+  <interceptor name="loginInterceptor" class="cn.mj.interceptor.LoginInterceptor"></interceptor>
+  <interceptor-stack name="erpStack">
+  <!-- struts默认拦截器 -->
+  <interceptor-ref name="defaultStack"></interceptor-ref>
+  <interceptor-ref name="loginInterceptor"></interceptor-ref>
+  </interceptor-stack>
+  </interceptors>
+<default-interceptor-ref name="erpStack"></default-interceptor-ref>
+</package>
+
+ <package name="erp" extends="baseStack">
+  <global-results>
+  <result name="login">/WEB-INF/jsps/emp/tologin.jsp</result>
+  </global-results>
+  <action name="erp_*">
+  <result>/WEB-INF/jsps/{1}.jsp</result>
+  </action>
+  <!-- emp -->
+  <action name="emp_*" class="empAction" method="emp_{1}">
+  <!-- 拦截器的排除 -->
+  <interceptor-ref name="erpStack">
+   <param name="loginInterceptor.excludeMethods">emp_login,emp_tologin</param>
+  </interceptor-ref>
+  <result name="success">/WEB-INF/jsps/emp/{1}.jsp</result>
+   <result name="list" type="redirectAction">emp_list</result>
+    <result name="main" type="redirectAction">erp_main</result>
+  </action>
+  <action name="ajax_emp_*" class="empAction" method="ajax_emp_{1}">
+   <!-- 拦截器的排除 -->
+  <interceptor-ref name="erpStack">
+   <param name="loginInterceptor.excludeMethods">ajax_emp_getImage</param>
+  </interceptor-ref>
+  </action>
+  <!-- dep -->
+   <action name="dep_*" class="depAction" method="dep_{1}">
+    <result name="success">/WEB-INF/jsps/dep/{1}.jsp</result>
+     <result name="list" type="redirectAction">dep_list</result>
+   </action>
+  <action name="ajax_dep_*" class="depAction" method="ajax_dep_{1}"></action>
+  <!-- role -->
+   <action name="role_*" class="roleAction" method="role_{1}">
+    <result name="success">/WEB-INF/jsps/role/{1}.jsp</result>
+     <result name="list" type="redirectAction">role_list</result>
+   </action>
+  <action name="ajax_role_*" class="roleAction" method="ajax_role_{1}"></action>
+  <!-- supplier -->
+  <action name="supplier_*" class="supplierAction" method="supplier_{1}">
+    <result name="success">/WEB-INF/jsps/supplier/{1}.jsp</result>
+     <result name="list" type="redirectAction">supplier_list</result>
+   </action>
+  <action name="ajax_supplier_*" class="supplierAction" method="ajax_supplier_{1}"></action>
+  <!-- productType -->
+  <action name="productType_*" class="productTypeAction" method="productType_{1}">
+    <result name="success">/WEB-INF/jsps/productType/{1}.jsp</result>
+     <result name="list" type="redirectAction">productType_list</result>
+   </action>
+  <action name="ajax_productType_*" class="productTypeAction" method="ajax_productType_{1}"></action>
+  <!-- product -->
+  <action name="product_*" class="productAction" method="product_{1}">
+    <result name="success">/WEB-INF/jsps/product/{1}.jsp</result>
+     <result name="list" type="redirectAction">product_list</result>
+   </action>
+  <action name="ajax_product_*" class="productAction" method="ajax_product_{1}"></action>
+  <!-- orderModel -->
+  <action name="orderModel_*" class="orderModelAction" method="orderModel_{1}">
+    <result name="success">/WEB-INF/jsps/order/buy/{1}.jsp</result>
+     <result name="list" type="redirectAction">orderModel_list</result>
+   </action>
+  <action name="ajax_orderModel_*" class="orderModelAction" method="ajax_orderModel_{1}"></action>
+  <!-- 运输单 -->
+  <action name="tranOrder_*" class="tranOrderAction" method="tranOrder_{1}">
+    <result name="success">/WEB-INF/jsps/transport/{1}.jsp</result>
+      <result name="store_success">/WEB-INF/jsps/store/{1}.jsp</result>
+       <result name="store_inDetail">/WEB-INF/jsps/store/{1}.jsp</result>
+   </action>
+  <action name="ajax_tranOrder_*" class="tranOrderAction" method="ajax_tranOrder_{1}"></action>
+  <!-- consoleLog -->
+  <action name="consoleLog_*" class="consoleLogAction" method="consoleLog_{1}">
+    <result name="success">/WEB-INF/jsps/log/{1}.jsp</result>
+     <result name="list" type="redirectAction">consoleLog_list</result>
+   </action>
+  <action name="ajax_consoleLog_*" class="consoleLogAction" method="ajax_consoleLog_{1}"></action>
+  <!-- store -->
+   <action name="store_*" class="storeAction" method="store_{1}">
+    <result name="success">/WEB-INF/jsps/store/{1}.jsp</result>
+     <result name="list" type="redirectAction">store_list</result>
+   </action>
+  <action name="ajax_store_*" class="storeAction" method="ajax_store_{1}"></action>
+  <!-- bill报表 -->
+   <action name="bill_*" class="billAction" method="bill_{1}">
+    <result name="success">/WEB-INF/jsps/bill/{1}.jsp</result>
+   </action>
+  </package> 
+</struts>
+ 

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+class Hd 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s =new Scanner(System.in);
+		System.out.println("请输入1-9的数字就有1-9的乘法表");
+		int a = s.nextInt();
+		for (int x=1;x<=9 ;x++ )
+		{
+			for (int y=1;y<=x ;y++ )
+			{
+				System.out.print(y+"*"+x+"="+x*y+'\t');
+			}
+			System.out.println(" ");
+		}
+	}
+}

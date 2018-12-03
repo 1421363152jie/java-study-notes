@@ -1,0 +1,69 @@
+package cn.mj.controller;
+
+import cn.mj.model.Demo;
+import cn.mj.query.DemoQuery;
+import cn.mj.service.DemoService;
+import cn.mj.utils.Page;
+
+import com.opensymphony.xwork2.ActionContext;
+
+public class DemoAction extends BaseAction{
+
+
+
+	private DemoService demoService;
+	
+	
+     private DemoQuery query=new  DemoQuery();
+   
+       private Demo demo=new Demo();
+  
+
+
+	public DemoService getDemoService() {
+		return demoService;
+	}
+
+
+	public void setDemoService(DemoService demoService) {
+		this.demoService = demoService;
+	}
+
+
+	public DemoQuery getQuery() {
+		return query;
+	}
+
+
+	public void setQuery(DemoQuery query) {
+		this.query = query;
+	}
+
+
+	public Demo getDemo() {
+		return demo;
+	}
+
+
+	public void setDemo(Demo demo) {
+		this.demo = demo;
+	}
+
+
+	public String demo_list(){
+		ActionContext context = ActionContext.getContext();
+         Integer pageNo = query.getPageNo();
+	     if(pageNo==null){
+	    	 query.setPageNo(1);
+	     }
+         
+         
+		Page page = demoService.queryObjBycondition(query, exclude);
+		context.put("page", page);
+		
+		return SUCCESS;
+		
+	}
+
+	
+}

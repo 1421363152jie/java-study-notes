@@ -1,0 +1,158 @@
+1，面对对象具体案例
+class Car{
+	String name;
+	String yanse;
+	double gaodu;
+	int chelun;
+	public void pao(){
+		System.out.println(name+"车在跑");
+	}
+	public void jiashi(){
+		System.out.println("车可以驾驶");
+	}
+}
+class BmCar
+{
+	public static void main(String[] args){
+		Car car =new Car();
+		car.name="宝马";
+		car.yanse="绿色";
+		car.gaodu=1.00;
+		car.chelun=4;
+		System.out.println("车的颜色:"+car.yanse);
+		System.out.println("车的高度:"+car.gaodu);
+	    System.out.println("车的轮子:"+car.chelun);
+		Car car1 =car;
+		car1.yanse="黄色";
+        System.out.println("车的颜色:"+car1.yanse);
+		System.out.println("车的高度:"+car1.gaodu);
+	    System.out.println("车的轮子:"+car1.chelun);
+		car.pao();
+	}
+}
+具体案例2：
+class Dag{
+	String yanse;
+	int gaodu;
+	int tui;
+	public void run(){
+		System.out.println("在跑");
+	}
+}
+class TdDag
+{
+	public static void main(String[] args){
+		Dag dag = new Dag();
+		dag.yanse="绿色";
+		dag.gaodu=1;
+		dag.tui=4;
+		Dag.run();
+		System.out.println("一只身高"+dag.gaodu+"米"+dag.yanse+"的狗有"+dag.tui+"条腿");
+	}
+2,封装案例:
+class Cat
+{
+	private String name;
+    private char xinbei;
+	private int age;
+	public void setName(String a){
+		name=a;
+	}
+	public void setXinbei(char g){
+		xinbei=g;
+	}
+	public void setAge(int b){
+		age=b;
+	}
+	public String getName(){
+		return name;
+	}
+	public char getXinbei(){
+		return xinbei;
+	}-
+	public int getAge(){
+		return age;
+	}
+	public void zhao(){
+		System.out.println("在抓耗子");
+	}public void sui(){
+		System.out.println("在睡觉");
+	}
+}
+class JfCat
+{
+	public static void main(String[] args){
+		Cat cat=new Cat();
+		cat.setName("加菲猫");
+		cat.setXinbei('男');
+		cat.setAge(3);
+		String name=cat.getName();
+		char xinbei=cat.getXinbei();
+		int age=cat.getAge();
+		System.out.println(name);
+		System.out.println(xinbei);
+		System.out.println(age);
+		cat.zhao();
+
+	}
+}
+static关键字的使用案例：
+class Teacher
+{
+	String name;
+	int age;
+	String course;
+	public Teacher(String name,int age,String course){
+		this.name=name;
+		this.age=age;
+		this.course=course;
+	}
+	public void teach(){
+		System.out.println(name+"老师在教"+course);
+	}
+	public static void job(){
+		System.out.println("老师在改作业");
+	}
+}
+class NewTeacher
+{
+	public static void main(String[] args){
+	Teacher th=new Teacher("某某",50,"历史");
+	th.teach();
+	Teacher.job();
+	}
+}
+static另一个文件调用案例：
+class Arrdy 
+{
+	public static void array(int []arr){
+		for (int i=0;i<arr.length ;i++ )
+		{
+			for (int j=0;j<arr.length-1-i ;j++ )
+			{
+				if (arr[j+1]>arr[j])
+				{
+					int temp=arr[j+1];
+					arr[j+1]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+}
+public static void print(int [] arr){
+	for (int i=0;i<arr.length ;i++ )
+	{
+		System.out.print(arr[i]+"\t");
+	}
+ }
+}
+调用的对象;
+class A
+{
+	public static void main(String[] args) 
+	{
+		int [] arr={1,2,3,9,5,34,5,6,77};
+		Arrdy.array(arr);
+		Arrdy.print(arr);
+	}
+}

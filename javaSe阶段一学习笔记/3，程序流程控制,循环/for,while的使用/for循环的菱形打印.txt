@@ -1,0 +1,16 @@
+* 打印菱形的*
+	 * 第一步先循环行数
+	 * 第二步循环空格:空格数 = 行数 - 行号	
+	 * 第三步循环*数：*数 = 2*行号 - 1	
+//外层循环
+		for(int i=1;i<=4;i++){
+			//打印空格数
+			for(int j=1;j<=4-i;j++){
+				System.out.print(" ");
+			}
+			//在每一行上打印
+			for(int k=1;k<=2*i-1;k++){
+				System.out.print("*");
+			}
+			System.out.println();
+		}	

@@ -1,0 +1,25 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+        别名的定义
+    <typeAliases>
+        <typeAlias type="java.util.Map" alias="map"/>
+    </typeAliases> -->
+    <mappers>
+        <mapper resource="cn/mj/ecps/mapper/EbBrandMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbItemMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbFeatureMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbParaValueMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbSkuMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbItemClobMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbSpecValueMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbConsoleLogMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/TsPtlUserMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbShipAddrMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbAreaMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbOrderMapper.xml"/>
+        <mapper resource="cn/mj/ecps/mapper/EbOrderDetailMapper.xml"/>
+    </mappers>
+        </configuration>
